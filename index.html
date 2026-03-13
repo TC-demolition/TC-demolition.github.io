@@ -1,153 +1,896 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ko">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>태창 철거 전문</title>
 
-<meta charset="UTF-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<title>태창 철거</title>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Arial, "Malgun Gothic", "맑은 고딕", sans-serif;
+      color: #111;
+      background: #f6f7f9;
+      line-height: 1.6;
+    }
 
-body{
-margin:0;
-font-family:Arial;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.header{
-background:url("main-image.jpg");
-background-size:cover;
-background-position:center center;
-background-repeat:no-repeat;
-height:70vh;
-min-height:450px;
-max-height:650px;
-position:relative;
-color:white;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.overlay{
-background:rgba(0,0,0,0.5);
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-.phone{
-font-size:24px;
-font-weight:bold;
-margin-top:10px;
-color:#ffcc00;
-}
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      max-height: 820px;
+      background: url("main-image.jpg") center center / cover no-repeat;
+      color: #fff;
+    }
 
-.menu{
-background:white;
-padding:15px;
-text-align:center;
-box-shadow:0 2px 5px rgba(0,0,0,0.2);
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.48);
+    }
 
-.menu a{
-margin:20px;
-text-decoration:none;
-color:black;
-font-weight:bold;
-}
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
 
-.section{
-padding:60px;
-text-align:center;
-}
+    .hero-content {
+      max-width: 780px;
+    }
 
-.services{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:40px;
-}
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(3px);
+    }
 
-.card{
-background:white;
-padding:30px;
-width:250px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-border-radius:10px;
-}
+    .hero h1 {
+      margin: 0;
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-}
+    .hero p.subtitle {
+      margin: 18px 0 0;
+      font-size: 21px;
+      color: rgba(255,255,255,0.92);
+    }
 
-</style>
+    .hero .phone {
+      margin-top: 28px;
+      font-size: 38px;
+      font-weight: 800;
+      color: #ffd400;
+      line-height: 1.2;
+    }
 
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #ffd400;
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(255, 212, 0, 0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.14);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 74px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 12px;
+      color: #666;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu a {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      position: relative;
+    }
+
+    .menu a:hover {
+      color: #d19d00;
+    }
+
+    .menu-cta {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .menu-cta:hover {
+      background: #333;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      color: #c28f00;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .section-desc {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .section-white {
+      background: #fff;
+    }
+
+    .section-gray {
+      background: #f2f4f7;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .about-card,
+    .info-card,
+    .service-card,
+    .gallery-card,
+    .equip-card,
+    .estimate-box,
+    .contact-card,
+    .map-card,
+    .form-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .about-card,
+    .info-card,
+    .estimate-box,
+    .contact-card,
+    .form-card {
+      padding: 34px;
+    }
+
+    .about-card h3,
+    .info-card h3,
+    .estimate-box h3,
+    .contact-card h3,
+    .form-card h3 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    .about-card p,
+    .info-card p,
+    .estimate-box p,
+    .contact-card p {
+      margin: 0;
+      color: #555;
+      font-size: 16px;
+    }
+
+    .about-points {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .point {
+      background: #f7f8fa;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .service-grid,
+    .gallery-grid,
+    .equip-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .equip-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-card,
+    .gallery-card,
+    .equip-card {
+      overflow: hidden;
+      transition: 0.28s ease;
+    }
+
+    .service-card:hover,
+    .gallery-card:hover,
+    .equip-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.1);
+    }
+
+    .service-card img,
+    .gallery-card img,
+    .equip-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-body,
+    .gallery-body,
+    .equip-body {
+      padding: 24px;
+    }
+
+    .service-body h3,
+    .gallery-body h3,
+    .equip-body h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .service-body p,
+    .gallery-body p,
+    .equip-body p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .estimate-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .estimate-box .big-phone {
+      margin-top: 18px;
+      font-size: 40px;
+      font-weight: 900;
+      color: #d89a00;
+      line-height: 1.2;
+    }
+
+    .estimate-meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #f5f6f8;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .map-card {
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+      display: block;
+    }
+
+    .form-card {
+      padding: 34px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+      width: 100%;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 14px 15px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fff;
+      color: #111;
+    }
+
+    .form-group textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .submit-btn:hover {
+      background: #333;
+    }
+
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 46px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .footer p {
+      margin: 0;
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      background: #ffd400;
+      color: #111;
+      font-weight: 900;
+      padding: 16px 20px;
+      border-radius: 999px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+      font-size: 15px;
+    }
+
+    .floating-call:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1100px) {
+      .service-grid,
+      .gallery-grid,
+      .equip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .estimate-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        min-height: 68vh;
+        padding: 100px 20px 70px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p.subtitle {
+        font-size: 17px;
+      }
+
+      .hero .phone {
+        font-size: 28px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .menu {
+        gap: 14px;
+      }
+
+      .menu a {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .service-grid,
+      .gallery-grid,
+      .equip-grid,
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .estimate-box .big-phone {
+        font-size: 30px;
+      }
+
+      .floating-call {
+        right: 16px;
+        bottom: 16px;
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="header">
+  <!-- 메인 -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">TC 태창철거 · 신뢰 · 안전 · 책임시공</div>
+        <h1>태창 철거 전문</h1>
+        <p class="subtitle">상가철거 / 인테리어 철거 / 원상복구 / 폐기물 처리</p>
+        <div class="phone">무료견적 010-XXXX-XXXX</div>
+        <div class="hero-buttons">
+          <a href="#estimate" class="btn btn-primary">무료견적 문의</a>
+          <a href="#portfolio" class="btn btn-secondary">시공사례 보기</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="overlay">
+  <!-- 메뉴 -->
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        TC 태창철거
+        <small>Demolition · Trust · Safety</small>
+      </div>
 
-<h1>태창 철거 전문</h1>
+      <nav class="menu">
+        <a href="#about">회사소개</a>
+        <a href="#services">사업영역</a>
+        <a href="#portfolio">시공사례</a>
+        <a href="#equipment">보유장비</a>
+        <a href="#estimate">무료견적</a>
+        <a href="#contact">오시는길</a>
+      </nav>
 
-<p>상가철거 / 인테리어 철거 / 원상복구</p>
+      <a href="tel:010-XXXX-XXXX" class="menu-cta">전화상담</a>
+    </div>
+  </div>
 
-<p class="phone">무료견적 010-XXXX-XXXX</p>
+  <!-- 회사소개 -->
+  <section id="about" class="section-white">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-label">ABOUT US</div>
+        <h2 class="section-title">신뢰할 수 있는 철거 전문 업체</h2>
+        <p class="section-desc">
+          태창 철거는 상가, 사무실, 인테리어 철거 및 원상복구를 중심으로
+          빠르고 안전한 시공을 진행합니다.
+        </p>
+      </div>
 
-</div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>현장 중심으로 정확하게 진행합니다.</h3>
+          <p>
+            철거는 단순히 부수는 작업이 아니라 일정, 안전, 정리, 폐기물 처리까지
+            모두 포함된 작업입니다. 태창 철거는 현장 상황에 맞춰 효율적으로 작업을 진행하고,
+            불필요한 비용 없이 깔끔한 마무리를 목표로 합니다.
+          </p>
 
-</div>
+          <div class="about-points">
+            <div class="point">상가 / 매장 철거</div>
+            <div class="point">사무실 철거</div>
+            <div class="point">원상복구</div>
+            <div class="point">폐기물 처리</div>
+          </div>
+        </div>
 
-<div class="menu">
+        <div class="info-card">
+          <h3>상담 가능 지역</h3>
+          <p>
+            대구 및 경북 지역 중심으로 상담 가능합니다.<br><br>
+            현장 확인 후 작업 범위, 일정, 비용을 안내드립니다.<br><br>
+            직접 시공 기준으로 합리적인 견적을 제공합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<a href="#">회사소개</a>
+  <!-- 사업영역 -->
+  <section id="services" class="section-gray">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-label">SERVICE</div>
+        <h2 class="section-title">사업영역</h2>
+        <p class="section-desc">
+          현장 상황에 맞는 철거 작업과 후처리까지 한 번에 진행합니다.
+        </p>
+      </div>
 
-<a href="#">서비스</a>
+      <div class="service-grid">
+        <div class="service-card">
+          <img src="main-image.jpg" alt="상가 철거" />
+          <div class="service-body">
+            <h3>상가 철거</h3>
+            <p>식당, 카페, 매장, 프랜차이즈 매장 철거 작업</p>
+          </div>
+        </div>
 
-<a href="#">시공사례</a>
+        <div class="service-card">
+          <img src="main-image.jpg" alt="인테리어 철거" />
+          <div class="service-body">
+            <h3>인테리어 철거</h3>
+            <p>내부 구조물, 벽체, 천장, 바닥, 집기 철거</p>
+          </div>
+        </div>
 
-<a href="#">문의</a>
+        <div class="service-card">
+          <img src="main-image.jpg" alt="원상복구" />
+          <div class="service-body">
+            <h3>원상복구</h3>
+            <p>임대 종료 전 원상복구 및 반환 대응 작업</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- 시공사례 -->
+  <section id="portfolio" class="section-white">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-label">PORTFOLIO</div>
+        <h2 class="section-title">시공사례</h2>
+        <p class="section-desc">
+          향후 실제 작업 사진으로 교체하면 된다. 지금은 동일 이미지로 자리만 잡아둔 상태다.
+        </p>
+      </div>
 
-<div class="section">
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="main-image.jpg" alt="시공사례 1" />
+          <div class="gallery-body">
+            <h3>카페 철거</h3>
+            <p>매장 내부 철거 및 폐기물 정리</p>
+          </div>
+        </div>
 
-<h2>철거 서비스</h2>
+        <div class="gallery-card">
+          <img src="main-image.jpg" alt="시공사례 2" />
+          <div class="gallery-body">
+            <h3>사무실 철거</h3>
+            <p>파티션 철거, 바닥 및 천장 정리</p>
+          </div>
+        </div>
 
-<div class="services">
+        <div class="gallery-card">
+          <img src="main-image.jpg" alt="시공사례 3" />
+          <div class="gallery-body">
+            <h3>상가 원상복구</h3>
+            <p>임대 반환 전 원상복구 작업</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
+  <!-- 보유장비 -->
+  <section id="equipment" class="section-gray">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-label">EQUIPMENT</div>
+        <h2 class="section-title">보유장비</h2>
+        <p class="section-desc">
+          전문 장비 운용으로 빠르고 안전한 작업을 진행합니다.
+        </p>
+      </div>
 
-<h3>상가 철거</h3>
+      <div class="equip-grid">
+        <div class="equip-card">
+          <img src="main-image.jpg" alt="절단 장비" />
+          <div class="equip-body">
+            <h3>절단 장비</h3>
+            <p>철거 범위별 절단 및 해체 작업 대응</p>
+          </div>
+        </div>
 
-<p>식당 / 카페 / 매장 철거</p>
+        <div class="equip-card">
+          <img src="main-image.jpg" alt="브레이커" />
+          <div class="equip-body">
+            <h3>브레이커</h3>
+            <p>바닥, 벽체 철거 작업용 장비</p>
+          </div>
+        </div>
 
-</div>
+        <div class="equip-card">
+          <img src="main-image.jpg" alt="해체 공구" />
+          <div class="equip-body">
+            <h3>해체 공구</h3>
+            <p>정밀 철거 및 마감 해체 대응</p>
+          </div>
+        </div>
 
-<div class="card">
+        <div class="equip-card">
+          <img src="main-image.jpg" alt="폐기물 처리" />
+          <div class="equip-body">
+            <h3>폐기물 처리</h3>
+            <p>철거 후 정리 및 반출까지 진행</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>사무실 철거</h3>
+  <!-- 무료견적 -->
+  <section id="estimate" class="section-white">
+    <div class="container">
+      <div class="estimate-grid">
+        <div class="estimate-box">
+          <h3>무료견적 문의</h3>
+          <p>
+            현장 사진 또는 작업 위치를 알려주시면 상담이 더 빠릅니다.
+            작업 범위 확인 후 일정과 비용을 안내드립니다.
+          </p>
 
-<p>사무실 / 학원 / 병원</p>
+          <div class="big-phone">010-XXXX-XXXX</div>
 
-</div>
+          <div class="estimate-meta">
+            <span class="pill">방문 견적 가능</span>
+            <span class="pill">전화 상담 가능</span>
+            <span class="pill">대구 / 경북 상담</span>
+          </div>
+        </div>
 
-<div class="card">
+        <div class="contact-card">
+          <h3>빠른 안내</h3>
+          <p>
+            철거 종류, 위치, 작업 희망일을 알려주면 보다 빠르게 상담 가능합니다.<br><br>
+            예시) 대구 수성구 / 카페 철거 / 이번 주 내 견적 요청
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>원상복구</h3>
+  <!-- 오시는길 / 문의 -->
+  <section id="contact" class="section-gray">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="section-label">CONTACT</div>
+        <h2 class="section-title">오시는길 / 문의</h2>
+        <p class="section-desc">
+          왼쪽은 지도, 오른쪽은 문의 입력 영역이다. 주소와 연락처는 실제 정보로 교체하면 된다.
+        </p>
+      </div>
 
-<p>임대 반환 원상복구</p>
+      <div class="contact-grid">
+        <div class="map-card">
+          <iframe
+            src="https://maps.google.com/maps?q=daegu&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
 
-</div>
+        <div class="form-card">
+          <h3>문의 남기기</h3>
 
-</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">이름</label>
+              <input id="name" type="text" placeholder="이름" />
+            </div>
 
-</div>
+            <div class="form-group">
+              <label for="phone">연락처</label>
+              <input id="phone" type="text" placeholder="연락처" />
+            </div>
+          </div>
 
+          <div class="form-group">
+            <label for="message">문의내용</label>
+            <textarea id="message" placeholder="문의내용을 입력하세요."></textarea>
+          </div>
+
+          <button class="submit-btn" type="button">문의하기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">TC 태창철거</div>
+        <p>상가철거 · 인테리어 철거 · 원상복구 · 폐기물 처리</p>
+      </div>
+
+      <div>
+        <p>주소: 대구광역시 ○○구 ○○로</p>
+        <p>문의: 010-XXXX-XXXX</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 우측 하단 전화 버튼 -->
+  <a class="floating-call" href="tel:010-XXXX-XXXX">전화상담 010-XXXX-XXXX</a>
 
 </body>
-
 </html>
+
