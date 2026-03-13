@@ -25,7 +25,7 @@ background:#f8f9fb;
 
 .header{
 
-background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd");
+background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80");
 
 background-size:cover;
 
@@ -33,7 +33,7 @@ background-position:center;
 
 color:white;
 
-padding:120px 20px;
+padding:140px 20px;
 
 text-align:center;
 
@@ -41,7 +41,7 @@ text-align:center;
 
 .header h1{
 
-font-size:48px;
+font-size:50px;
 
 margin:0;
 
@@ -51,21 +51,23 @@ margin:0;
 
 background:white;
 
-padding:20px;
+padding:18px;
 
 position:sticky;
 
 top:0;
 
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+box-shadow:0 3px 15px rgba(0,0,0,0.06);
 
 text-align:center;
+
+z-index:10;
 
 }
 
 .menu a{
 
-margin:15px;
+margin:18px;
 
 text-decoration:none;
 
@@ -73,11 +75,19 @@ color:#222;
 
 font-weight:bold;
 
+font-size:15px;
+
+}
+
+.menu a:hover{
+
+color:red;
+
 }
 
 .section{
 
-padding:80px 20px;
+padding:90px 20px;
 
 max-width:1200px;
 
@@ -105,17 +115,25 @@ flex-wrap:wrap;
 
 background:white;
 
-padding:30px;
+padding:25px;
 
 flex:1;
 
-min-width:250px;
+min-width:260px;
 
-border-radius:10px;
+border-radius:12px;
 
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
 
 text-align:center;
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
 
 }
 
@@ -125,11 +143,15 @@ width:100%;
 
 border-radius:10px;
 
+height:200px;
+
+object-fit:cover;
+
 }
 
 .phone{
 
-font-size:32px;
+font-size:34px;
 
 color:#ff3b3b;
 
@@ -167,11 +189,13 @@ input{
 
 width:100%;
 
-padding:12px;
+padding:14px;
 
 margin:10px 0;
 
 border:1px solid #ddd;
+
+border-radius:5px;
 
 }
 
@@ -179,27 +203,39 @@ textarea{
 
 width:100%;
 
-height:140px;
+height:150px;
 
-padding:12px;
+padding:14px;
 
 border:1px solid #ddd;
+
+border-radius:5px;
 
 }
 
 button{
 
-background:black;
+background:#111;
 
 color:white;
 
 border:0;
 
-padding:15px;
+padding:16px;
 
 width:100%;
 
 font-size:16px;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:red;
 
 }
 
@@ -209,11 +245,29 @@ background:#111;
 
 color:white;
 
-padding:40px;
+padding:50px;
 
 text-align:center;
 
 margin-top:60px;
+
+}
+
+@media(max-width:768px){
+
+.header h1{
+
+font-size:32px;
+
+}
+
+.menu a{
+
+display:block;
+
+margin:10px;
+
+}
 
 }
 
@@ -255,8 +309,10 @@ margin-top:60px;
 
 <p>
 
-태창 철거는 상가 및 인테리어 철거 전문 업체입니다.
-풍부한 현장 경험을 바탕으로 안전하고 신속한 작업을 진행합니다.
+태창 철거는 상가 및 인테리어 철거 전문 업체입니다.<br><br>
+
+풍부한 현장 경험을 바탕으로 안전하고 신속한 작업을 진행합니다.<br><br>
+
 대구 및 경북 지역 상담 가능합니다.
 
 </p>
@@ -271,7 +327,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=60">
 
 <h3>상가철거</h3>
 
@@ -281,7 +337,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1581092160607-ee22731e4f2c">
+<img src="https://images.unsplash.com/photo-1581092160607-ee22731e4f2c?auto=format&fit=crop&w=800&q=60">
 
 <h3>인테리어 철거</h3>
 
@@ -291,7 +347,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1513828583688-c52646db42da">
+<img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=60">
 
 <h3>폐기물 처리</h3>
 
@@ -311,7 +367,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=60">
 
 <p>카페 철거</p>
 
@@ -319,7 +375,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
+<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=60">
 
 <p>사무실 철거</p>
 
@@ -327,7 +383,7 @@ margin-top:60px;
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1503389152951-9f343605f61c">
+<img src="https://images.unsplash.com/photo-1503389152951-9f343605f61c?auto=format&fit=crop&w=800&q=60">
 
 <p>상가 철거</p>
 
@@ -411,7 +467,9 @@ height="350"
 
 <div class="footer">
 
-TAECHANG DEMOLITION
+TAECHANG DEMOLITION<br><br>
+
+무료견적 문의 010-XXXX-XXXX
 
 </div>
 
