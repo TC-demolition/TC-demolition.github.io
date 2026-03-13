@@ -15,87 +15,70 @@ font-family:Arial;
 }
 
 .header{
-
 background:url("main-image.jpg");
-
 background-size:cover;
-
 background-position:center center;
-
 background-repeat:no-repeat;
-
 height:70vh;
-
 min-height:450px;
-
 max-height:650px;
-
 position:relative;
-
 color:white;
-
 }
 
 .overlay{
-
 background:rgba(0,0,0,0.5);
-
 height:100%;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 text-align:center;
-
 }
 
 .phone{
-
 font-size:24px;
-
 font-weight:bold;
-
 margin-top:10px;
-
 color:#ffcc00;
-
 }
 
 .menu{
-
 background:white;
-
 padding:15px;
-
 text-align:center;
-
 box-shadow:0 2px 5px rgba(0,0,0,0.2);
-
 }
 
 .menu a{
-
 margin:20px;
-
 text-decoration:none;
-
 color:black;
-
 font-weight:bold;
-
 }
 
 .section{
-
 padding:60px;
-
 text-align:center;
+}
 
+.services{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+width:250px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+border-radius:10px;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 </style>
@@ -134,9 +117,36 @@ text-align:center;
 
 <h2>철거 서비스</h2>
 
-<p>상가철거 / 사무실철거 / 원상복구 전문</p>
+<div class="services">
+
+<div class="card">
+
+<h3>상가 철거</h3>
+
+<p>식당 / 카페 / 매장 철거</p>
 
 </div>
+
+<div class="card">
+
+<h3>사무실 철거</h3>
+
+<p>사무실 / 학원 / 병원</p>
+
+</div>
+
+<div class="card">
+
+<h3>원상복구</h3>
+
+<p>임대 반환 원상복구</p>
+
+</div>
+
+</div>
+
+</div>
+
 
 </body>
 
