@@ -216,7 +216,7 @@ text-align:center;
 
 <iframe
 
-src="https://maps.google.com/maps?q=daegu&t=&z=13&ie=UTF8&iwloc=&output=embed"
+src="https://maps.google.com/maps?q=대구 달성군 화원읍 화원로7길 68&t=&z=17&output=embed"
 
 width="100%"
 
