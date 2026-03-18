@@ -937,6 +937,55 @@ loading="lazy">
 
   <!-- 우측 하단 전화 버튼 -->
 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+
+(function(){
+emailjs.init("PBtbmnictCn4zzjUH");
+})();
+
+function sendMail(){
+
+var name =
+document.getElementById("name").value;
+
+var phone =
+document.getElementById("phone").value;
+
+var message =
+document.getElementById("message").value;
+
+if(name=="" || phone=="" || message==""){
+
+alert("내용을 입력해주세요");
+
+return;
+
+}
+
+emailjs.send(
+"service_ynx8bti",
+"template_tpvj0tj",
+{
+name:name,
+phone:phone,
+message:message
+})
+
+.then(function(){
+
+alert("문의가 접수되었습니다. 빠르게 연락드리겠습니다.");
+
+document.getElementById("name").value="";
+document.getElementById("phone").value="";
+document.getElementById("message").value="";
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
